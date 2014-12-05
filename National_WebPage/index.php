@@ -16,12 +16,13 @@ switch ($page) {
         $page = "home.php";
 }
 
-$is_connected = !empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']);
+$is_connected = !empty($_SESSION['LoggedIn']) && !empty($_SESSION['email']);
     
 
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -60,15 +61,15 @@ $is_connected = !empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']);
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;>
+            <div class="navbar-header" >
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Nuit de l'info</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                 La Nuit de L'info <?php echo $page_name; ?>
                 </a>
             </div>
@@ -315,7 +316,10 @@ $is_connected = !empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']);
                         </li>
                         -->
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <img src="images/nonepidemic-small.png" style="margin-top: -50px; margin-left: 20px;"/>
+                        </li>
+                        <li>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>

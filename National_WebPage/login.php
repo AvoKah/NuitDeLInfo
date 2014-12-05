@@ -1,5 +1,6 @@
 <?php
-session_start();
+include "base.php";
+
 if (!empty($_GET['LoggedOut']))
 {
     $_SESSION['LoggedIn'] = "";
@@ -8,36 +9,30 @@ if (!empty($_GET['LoggedOut']))
     die;
 }
 
-if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
+if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['email']))
 {
      ?>
  
      <h1>Member Area</h1>
-     <p>Thanks for logging in! You are <code><?php echo $_SESSION['Username']?></code>.</p>
+     <p>Vous etes connecte!.</p>
         
       
      <?php
 }
-elseif(!empty($_POST['username']) && !empty($_POST['password']))
+elseif(!empty($_POST['email']) && !empty($_POST['password']))
 {
-    /*
-    $username = mysql_real_escape_string($_POST['username']);
-    $password = md5(mysql_real_escape_string($_POST['password']));
+    
+    $email = mysql_real_escape_string($_POST['email']);
+    $password = mysql_real_escape_string($_POST['password']);
      
-    $checklogin = mysql_query("SELECT * FROM users WHERE Username = '".$username."' AND Password = '".$password."'");
-    */
+    $checklogin = mysql_query("SELECT * FROM users WHERE email = '".$email."' AND passwd = '".$password."'");
      
-    //if(mysql_num_rows($checklogin) == 1)
-    if (true)
+    if (mysql_num_rows($checklogin) == 1)
     {
-        //$row = mysql_fetch_array($checklogin);
-        //$email = $row['EmailAddress'];
+        $row = mysql_fetch_array($checklogin);
+        $email = $row['email'];
          
-/*        $_SESSION['Username'] = $username;
-        $_SESSION['EmailAddress'] = $email;
-        $_SESSION['LoggedIn'] = 1;*/
-        
-        $_SESSION['Username'] = "qdfqsdfq";
+        $_SESSION['email'] = $email;
         $_SESSION['LoggedIn'] = 1;
         
         header('Location: index.php');
@@ -47,8 +42,8 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
     }
     else
     {
-        echo "<h1>Error</h1>";
-        echo "<p>Sorry, your account could not be found. Please <a href=\"index.php\">click here to try again</a>.</p>";
+        echo "<h1>Erreur</h1>";
+        echo "<p>Ce compte n'existe pas. Veuillez <a href=\"login.php\">reessayer</a>.</p>";
     }
 }
 else
@@ -101,7 +96,7 @@ else
                         <form role="form" action="login.php" method="POST" name="loginform" id="loginform">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="username" autofocus>
+                                    <input class="form-control" placeholder="E-Mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
