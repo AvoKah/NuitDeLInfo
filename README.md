@@ -1,8 +1,3 @@
-NuitDeLInfo
-===========
-
-This is a sample repository to host your source code.
-
 ### TODO
 avogno_k
 floren_d
@@ -23,4 +18,3 @@ do_o
 
 bounio_g
 watts_c
-
