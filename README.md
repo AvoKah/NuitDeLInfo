@@ -8,7 +8,7 @@ pellis_n
 tresar_c
 rebisc_r
 bertet_f
-dagues_l
+dagues_p
 billon_r
 
 --------------------------------------------
