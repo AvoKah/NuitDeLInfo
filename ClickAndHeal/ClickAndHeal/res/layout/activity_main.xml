@@ -69,6 +69,7 @@
 		    android:textSize="20sp"
 		    android:gravity="center"
 		    android:layout_marginTop="35dp"
+		    android:onClick="go_menu"
 		    />
     </LinearLayout>
     

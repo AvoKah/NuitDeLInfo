@@ -1,6 +1,7 @@
 package com.example.clickandheal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -46,6 +47,12 @@ public class MainActivity extends Activity {
 			tv_bis.setText(Integer.toString(cn.get_cash()));
 			tv.setText(Integer.toString(cn.get_vacc()));
 		}
+	}
+	
+	public void go_menu(View view)
+	{
+		Intent myIntent = new Intent(MainActivity.this, MenuActivity.class);
+		MainActivity.this.startActivity(myIntent);
 	}
 
 }
