@@ -4,5 +4,23 @@ NuitDeLInfo
 This is a sample repository to host your source code.
 
 ### TODO
+avogno_k
+floren_d
+theven_c
+digest_e
+pellis_n
 
-Please write a few lines about the technical side of your project and provide your login's. At the end of the challenge, please push your final submit on */master*.
+tresar_c
+rebisc_r
+bertet_f
+dagues_l
+billon_r
+
+wauqui_s
+herrba_k
+somsou_j
+do_o
+
+bounio_g
+watts_c
+
