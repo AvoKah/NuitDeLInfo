@@ -74,7 +74,14 @@
 		<TextView
 		    android:layout_width="match_parent"
 		    android:layout_height="match_parent"
-		    android:text="25 vaccines sold"
+		    android:text="25"
+		    android:textSize="30sp"
+		    android:gravity="center"
+		    />
+		<TextView
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:text=" vaccines sold"
 		    android:textSize="30sp"
 		    android:gravity="center"
 		    />
