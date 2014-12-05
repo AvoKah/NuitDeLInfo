@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "base.php";
 
 $page = "";
 $page_name = "";

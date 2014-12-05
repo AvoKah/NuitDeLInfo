@@ -1,36 +1,34 @@
 <?php
-//include "base.php";
-session_start();
+include "base.php";
+header( 'content-type: text/html; charset=utf-8' );
 
-if(!empty($_POST['username']) && !empty($_POST['password']))
+if(!empty($_POST['email']) && !empty($_POST['password']))
 {
-    /*
-    $username = mysql_real_escape_string($_POST['username']);
-    $password = md5(mysql_real_escape_string($_POST['password']));
+    $password = mysql_real_escape_string($_POST['password']);
     $email = mysql_real_escape_string($_POST['email']);
     
      
-     $checkusername = mysql_query("SELECT * FROM users WHERE Username = '".$username."'");
-    */
+     $checkusername = mysql_query("SELECT * FROM users WHERE email = '".$email."'");
     
-     //if(mysql_num_rows($checkusername) == 1)
-     if (true)
+     if(mysql_num_rows($checkusername) == 1)
      {
-        echo "<h1>Error</h1>";
-        echo "<p>Sorry, that username is taken. Please go back and try again.</p>";
+        echo "<h1>Erreur</h1>";
+        echo "<p>Cette adresse est déjà présente.<br />";
+        echo "Veuillez reessayer avec une adresse differente.</p>";
      }
      else
      {
-        $registerquery = mysql_query("INSERT INTO users (Username, Password, EmailAddress) VALUES('".$username."', '".$password."', '".$email."')");
+        $registerquery = mysql_query("INSERT INTO users (passwd, email) VALUES('".$password."', '".$email."')");
         if($registerquery)
         {
-            echo "<h1>Success</h1>";
-            echo "<p>Your account was successfully created. Please <a href=\"index.php\">click here to login</a>.</p>";
+            echo "<h1>Cool</h1>";
+            echo "<p>Votre compte a bien été créé.<br />";
+            echo "Veuillez vous <a href=\"login.php\">connecter ici</a>.</p>";
         }
         else
         {
-            echo "<h1>Error</h1>";
-            echo "<p>Sorry, your registration failed. Please go back and try again.</p>";    
+            echo "<h1>Erreur</h1>";
+            echo "<p>Votre enregistrement a échoué. Veuillez réessayer.</p>";    
         }       
      }
 }
@@ -84,7 +82,7 @@ else
                         <form role="form" action="signup.php" method="POST" name="signupform" id="signupform">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Username" name="username" type="username" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
